@@ -1,21 +1,19 @@
 #include <stdio.h>
 
 int main() {
-    int n;
+    int oldNum = 0;
+    int currentNum = 1;
 
-    printf("Digite o numero que deseja\n");
-    scanf("%i", &n);
-
-    int numero_anterior = 0;
-    int numero_atual = 1;
+    printf("%i\n", oldNum);
+    printf("%i\n", currentNum);
 
     int i;
-    for (i = 0; i < n; i++) {
-        int num = numero_atual;
+    for (i = 0; i < 20; i++) {
+        int n = currentNum;
 
-        numero_atual = num + numero_anterior;
-        numero_anterior = num;
+        currentNum = n + oldNum;
+        oldNum = n;
+
+        printf("%i\n", currentNum);   
     }
-
-    printf("o numero %i da sequencia de fibonacci: %i", n, numero_atual);
 }
