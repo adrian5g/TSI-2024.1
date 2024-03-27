@@ -8,7 +8,7 @@ int main() {
     printf("%i\n", currentNum);
 
     int i;
-    for (i = 0; i < 20; i++) {
+    for (i = 0; i < 10; i++) {
         int n = currentNum;
 
         currentNum = n + oldNum;
