@@ -6,7 +6,7 @@ int main() {
 
     printf("%i\n", oldNum);
     printf("%i\n", currentNum);
-    
+
     for (size_t i = 0; i < 10; i++) {
         int n = currentNum;
 
