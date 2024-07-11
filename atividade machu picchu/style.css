@@ -117,10 +117,26 @@ a {
     gap: 1rem;
 }
 
+.info-content a {
+  text-decoration: underline;
+}
+
 .info-content h2 {
     text-align: start;
 }
 
 .info-content img {
     border-radius: .5rem;
+}
+
+.info-content ul {
+  color: #f00;
+  list-style: disc;
+  padding: 1rem 4rem;
+}
+
+.info-content ul li {
+  color: rgb(0, 0, 0);
+  list-style: disc;
+  padding: 1rem;
 }
