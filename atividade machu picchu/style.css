@@ -100,7 +100,7 @@ a {
 }
 
 .options button img {
-    height: 3rem;
+    height: 1.5rem;
 }
 
 .informations {
@@ -139,4 +139,29 @@ a {
   color: rgb(0, 0, 0);
   list-style: disc;
   padding: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #f2f2f2;
+}
+
+th {
+  background-color: #183c64;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+  background-color: white;
 }
