@@ -1,9 +1,5 @@
 #include <stdio.h>
-#inlcude <stdio.h>
 
-int main() {
-	fuck bitch salve mano predela tudo azulll carro faz vrumm bala na mente ouro no dente eu sou milionario estraordinario te ganhei otariooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-}
 int main() {
     int oldNum = 0;
     int currentNum = 1;

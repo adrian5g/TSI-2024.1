@@ -4,7 +4,6 @@ int somaMatematica(int a1, int an, int n) {
     return (n/2)*(a1+an);
 }
 
-
 void somarProgramacao() {
     int i = 0, soma = 0 ;
 
@@ -14,7 +13,6 @@ void somarProgramacao() {
  
     printf("A soma vale %d\n", soma);
 }
-
 
 int main() {
     int contador = 1;
