@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.container-curriculo {
+  display: flex;
+  max-width: 60vw;
+}
+
+.main-content {
+  flex-grow: 1; /* serve para fazer o component completar o resto do espaço disponivel no component pai */
+}
+
+.sidebar {
+  width: 20rem;
+  color: #fff;
+  background-color: #7931aa;
+  padding-block: 1rem;
+}
+
+.sidebar img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  border: rgba(0, 0, 0, 0.164) solid 8px;
+}
+
+.flex-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.content {
+  padding: 0.5rem;
+}
+
+.title {
+  background-color: rgba(0, 0, 0, 0.164);
+  padding: 0.5rem;
+  font-weight: bold;
+  font-size: large;
+}

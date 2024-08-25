@@ -1,0 +1,76 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.basicos {
+  text-align: start;
+  background-color: #ff9999;
+}
+
+.estagio {
+  background-color: blueviolet;
+}
+
+.intervalo {
+  background-color: #988ff9;
+}
+
+.livre {
+  background-color: #99ccff;
+}
+
+.almoco {
+  background-color: #ffcc99;
+}
+
+.jantar {
+  background-color: #ffccff;
+}
+
+.dormir {
+  background-color: #cccccc;
+}
+
+.ingles {
+  background-color: #ffcc99;
+}
+
+.leitura {
+  background-color: #ff9966;
+}
+
+.fundamentos {
+  background-color: #ffcc66;
+}
+
+.web {
+  background-color: #87ffc7;
+}
+
+.matematica {
+  background-color: #ffcc33;
+}
+
+.logica {
+  background-color: #ff9933;
+}
+
+.seminario {
+  background-color: #ff6600;
+}
+
+.arrumar {
+  background-color: #ffff99;
+}
