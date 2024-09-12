@@ -133,7 +133,7 @@ a {
   box-shadow: 0px 4px 10px var(--translucent-black);
 }
 
-.destaque-card:hover {
+.hero .destaque-card:hover {
   box-shadow: 0px 4px 10px var(--translucent-white);
 }
 
