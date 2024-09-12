@@ -208,6 +208,11 @@ main {
   margin-bottom: 2rem;
 }
 
+.promotion-card a {
+  color: var(--orange-2);
+  font-weight: 500;
+}
+
 .bottom-bar {
   margin-top: 5rem;
   display: flex;
