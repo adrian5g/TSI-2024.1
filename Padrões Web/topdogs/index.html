@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Top Dogs</title>
+  </head>
+  <body>
+    <header class="top-bar top-bar-fixed">
+      <img src="assets/topdog.png" alt="Logotipo Topdog" />
+
+      <nav class="navigation">
+        <ul class="links">
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#menu">Cardápio</a></li>
+          <li><a href="#promotions">Promoções</a></li>
+        </ul>
+
+        <button class="btn-1">
+          <img src="assets/icons/cart.svg" alt="Carrinho" />
+        </button>
+      </nav>
+    </header>
+
+    <main class="spaced-main">
+      <section class="hero" id="about">
+        <img src="assets/hotdog_illustration.png" alt="Ilustração Hotdog" />
+
+        <p>
+          A cantina móvel que leva o sabor dos melhores hot dogs até você! Com ingredientes frescos e combinações
+          criativas, nosso food truck é o destino ideal para os amantes de um bom cachorro-quente.
+        </p>
+
+        <button class="btn-2">Nossa História</button>
+      </section>
+
+      <section class="menu" id="menu">
+        <h1 class="section-title">Cardápio</h1>
+
+        <div class="menu-category" id="hotdogs">
+          <h2>Cachorros Quente</h2>
+          
+          <div class="menu-cards">
+            <div class="menu-card menu-card-grow">
+              <a href="details/hotdogs.html#tradicional" class="menu-card-image">
+                <img src="assets/images/hotdog_tradicional.png" alt="Hotdog Tradicional">
+              </a>
+  
+              <div class="menu-card-desc">
+                <h3>Hotdog tradicional</h3>
+                <span>R$ 6,50</span>
+              </div>
+            </div>
+
+            <div class="menu-card menu-card-grow">
+              <a href="details/hotdogs.html#carne" class="menu-card-image">
+                <img src="assets/images/hotdog_carne.png" alt="Hotdog de Carne">
+              </a>
+  
+              <div class="menu-card-desc">
+                <h3>Hotdog de Carne</h3>
+                <span>R$ 6,99</span>
+              </div>
+            </div>
+
+            <div class="menu-card menu-card-grow">
+              <a href="details/hotdogs.html#cheddar" class="menu-card-image">
+                <img src="assets/images/hotdog_cheddar.png" alt="Hotdog com Cheddar">
+              </a>
+  
+              <div class="menu-card-desc">
+                <h3>Hotdog com Cheddar</h3>
+                <span>R$ 7,50</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-category" id="salgados">
+          <h2>Salgados</h2>
+          
+          <div class="menu-cards">
+            <div class="menu-card menu-card-grow">
+              <a href="details/salgados.html#coxinha" class="menu-card-image">
+                <img src="assets/images/coxinha.png" alt="Coxinha">
+              </a>
+  
+              <div class="menu-card-desc">
+                <h3>Coxinha</h3>
+                <span>R$ 2,50</span>
+              </div>
+            </div>
+
+            <div class="menu-card menu-card-grow">
+              <a href="details/salgados.html#pastel" class="menu-card-image">
+                <img src="assets/images/pastel.png" alt="Pastel">
+              </a>
+  
+              <div class="menu-card-desc">
+                <h3>Pastel</h3>
+                <span>R$ 2,50</span>
+              </div>
+            </div>
+
+            <div class="menu-card menu-card-grow">
+              <a href="details/salgados.html#bolinho" class="menu-card-image">
+                <img src="assets/images/bolinho.png" alt="Bolinho">
+              </a>
+  
+              <div class="menu-card-desc">
+                <h3>Bolinho de Carne</h3>
+                <span>R$ 3,00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-category" id="bebidas">
+          <h2>Bebidas</h2>
+          
+          <div class="menu-cards">
+            <div class="menu-card menu-card-grow">
+              <a href="details/bebidas.html#suco" class="menu-card-image">
+                <img src="assets/images/suco_limao.png" alt="Suco">
+              </a>
+  
+              <div class="menu-card-desc">
+                <h3>Sucos</h3>
+                <span>R$ 5,00</span>
+              </div>
+            </div>
+
+            <div class="menu-card menu-card-grow">
+              <a href="details/bebidas.html#refrigerante" class="menu-card-image">
+                <img src="assets/images/refrigerante_guarana.png" alt="Refrigerante">
+              </a>
+  
+              <div class="menu-card-desc">
+                <h3>Refrigerante</h3>
+                <span>R$ 5,00</span>
+              </div>
+            </div>
+
+            <div class="menu-card menu-card-grow">
+              <a href="details/bebidas.html#milkshake" class="menu-card-image">
+                <img src="assets/images/milkshake.png" alt="Milkshape">
+              </a>
+  
+              <div class="menu-card-desc">
+                <h3>Milkshape</h3>
+                <span>R$ 10,00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="promotions">
+        <h1 class="section-title">Destaques da Semana</h1>
+
+        <div class="promotion-card">
+          <h2>Combo Família</h2>
+
+          <p>4 Hotdogs Tradicionais, 4 Coxinhas e 4 refrigerantes por apenas R$ 52,90!</p>
+
+          <button class="btn-2">
+            Pedir Agora
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bottom-bar">
+      <div class="authors">
+        <h2>Site desenvolvido por:</h2>
+
+        <ul>
+          <li><p>Igor Ádrian</p></li>
+          <li><p>Diogo Emanuel</p></li>
+          <li><p>Luiz Felipe</p></li>
+        </ul>
+      </div>
+
+      <p>Top Dogs &copy; Todos os Direitos Reservados</p>
+    </footer>
+  </body>
+</html>
