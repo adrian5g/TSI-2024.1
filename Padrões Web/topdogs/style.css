@@ -300,3 +300,21 @@ main {
   color: var(--orange-2);
   font-size: 1.8rem;
 }
+
+::-webkit-scrollbar {
+  width: 1.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--orange-2);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--orange-3);
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+  border-left: solid var(--gray-2) 3px;
+}
