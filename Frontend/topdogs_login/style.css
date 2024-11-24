@@ -39,6 +39,10 @@
 
 .info img {
   height: 20rem;
+
+  animation-name: balancing;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
 }
 
 .login-content {
@@ -83,10 +87,10 @@
 
 .input-wrapper img {
   position: absolute;
-  right: 5px;
+  right: 10px;
   top: 50%;
   transform: translate(0, -50%);
-  height: 1.8rem;
+  height: 1.6rem;
   background-color: inherit;
 }
 
@@ -100,7 +104,8 @@
 }
 
 .options a {
-  color: #A54200;
+  color: #a54200;
+  font-size: 14px;
   text-decoration: none;
 }
 
@@ -109,7 +114,7 @@
   --border-color: #a54200;
   --text-color: #fff;
 
-  padding: 0.6rem 2rem;
+  padding: 0.7rem 2rem;
   border-radius: 10px;
   border: var(--border-color) 2px solid;
   background-color: var(--bg);
@@ -127,6 +132,18 @@
 
 .input-wrapper input {
   width: 100%;
+}
+
+@keyframes balancing {
+  0% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(40deg);
+  }
+  100% {
+    transform: rotate(-20deg);
+  }
 }
 
 @media screen and (max-width: 900px) {
