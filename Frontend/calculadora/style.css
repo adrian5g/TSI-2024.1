@@ -83,8 +83,10 @@ body {
   font-weight: bold;
   border-radius: 2px;
   font-size: x-large;
+  transition: 500ms;
 }
 
 .btn:hover {
   opacity: .7;
+  scale: 1.1;
 }
