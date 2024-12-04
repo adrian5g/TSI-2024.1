@@ -1,87 +1,93 @@
 const buttons = document.querySelectorAll('.btn');
-const result = document.querySelector('.result');
-const history = document.querySelector('.history');
+const resultDisplay = document.querySelector('.result');
+const historyDisplay = document.querySelector('.history');
 
 const operators = ['/', '*', '-', '+'];
 
 let currentOperator = '';
-let number1 = '';
-let number2 = '';
+let firstNumber = '';
+let secondNumber = '';
 
-function handleClick(btn) {
-  const key = btn.innerText;
+function handleButtonClick(button) {
+  const key = button.innerText;
 
   if (operators.includes(key)) {
-    currentOperator = key;
+    if (!firstNumber) return;
 
-    updateResult();
+    currentOperator = key;
+    updateDisplay();
     return;
   }
 
   if (key === 'AC') {
-    clear();
+    resetCalculator();
     return;
   }
 
   if (key === '.') {
-    if (!currentOperator) {
-      if (!number1.includes(".")) number1 += '.'
+    if (currentOperator) {
+      if (!secondNumber.includes('.')) secondNumber += '.';
     } else {
-      if (!number2.includes(".")) number2 += '.'
+      if (!firstNumber.includes('.')) firstNumber += '.';
     }
+    
+    updateDisplay();
     return;
   }
 
   if (key === '=') {
-    if (number1 && number2 && currentOperator) handleResult();
+    if (firstNumber && secondNumber && currentOperator) computeResult();
     return;
   }
 
-  if (!currentOperator) number1 += key;
-  else number2 += key;
+  if (currentOperator) {
+    secondNumber += key;
+  } else {
+    firstNumber += key;
+  }
 
-  updateResult();
+  updateDisplay();
 }
 
-function clear() {
+function resetCalculator() {
+  firstNumber = '';
+  secondNumber = '';
   currentOperator = '';
-  number1 = '';
-  number2 = '';
-
-  result.innerText = '0';
-  history.innerText = '';
+  resultDisplay.innerText = '0';
+  historyDisplay.innerText = '';
 }
 
-function handleResult() {
-  let result = '';
+function computeResult() {
+  const num1 = parseFloat(firstNumber);
+  const num2 = parseFloat(secondNumber);
+  let result = 0;
 
   switch (currentOperator) {
     case '/':
-      result = Number(number1) / Number(number2);
+      result = num2 !== 0 ? num1 / num2 : 'Erro';
       break;
     case '*':
-      result = Number(number1) * Number(number2);
+      result = num1 * num2;
       break;
     case '-':
-      result = Number(number1) - Number(number2);
+      result = num1 - num2;
       break;
     case '+':
-      result = Number(number1) + Number(number2);
+      result = num1 + num2;
       break;
   }
 
-  history.innerText = `${number1} ${currentOperator} ${number2}`;
-
+  historyDisplay.innerText = `${firstNumber} ${currentOperator} ${secondNumber}`;
+  firstNumber = result.toString();
+  secondNumber = '';
   currentOperator = '';
-  number1 = result;
-  number2 = '';
-  updateResult();
+  updateDisplay();
 }
 
-function updateResult() {
-  result.innerText = `${number1} ${currentOperator} ${number2}`;
+function updateDisplay() {
+  resultDisplay.innerText = `${firstNumber} ${currentOperator} ${secondNumber}`.trim();
 }
 
-buttons.forEach((btn) => {
-  btn.addEventListener('click', () => handleClick(btn));
+buttons.forEach((button) => {
+  button.addEventListener('click', () => handleButtonClick(button));
 });
