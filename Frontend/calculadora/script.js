@@ -12,7 +12,7 @@ function handleButtonClick(button) {
   const key = button.innerText;
 
   if (operators.includes(key)) {
-    if (!firstNumber) return;
+    if (!firstNumber || firstNumber === "Erro") return;
 
     currentOperator = key;
     updateDisplay();
@@ -25,12 +25,14 @@ function handleButtonClick(button) {
   }
 
   if (key === '.') {
+    if (firstNumber === "Erro") return
+
     if (currentOperator) {
       if (!secondNumber.includes('.')) secondNumber += '.';
     } else {
       if (!firstNumber.includes('.')) firstNumber += '.';
     }
-    
+
     updateDisplay();
     return;
   }
@@ -39,6 +41,8 @@ function handleButtonClick(button) {
     if (firstNumber && secondNumber && currentOperator) computeResult();
     return;
   }
+
+  if (firstNumber === "Erro") return
 
   if (currentOperator) {
     secondNumber += key;
