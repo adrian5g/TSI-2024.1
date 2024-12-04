@@ -1,5 +1,6 @@
 const buttons = document.querySelectorAll('.btn');
 const result = document.querySelector('.result');
+const history = document.querySelector('.history');
 
 const operators = ['/', '*', '-', '+'];
 
@@ -18,16 +19,16 @@ function handleClick(btn) {
   }
 
   if (key === 'AC') {
-    currentOperator = '';
-    number1 = '';
-    number2 = '';
-
-    result.innerHTML = '0';
+    clear();
     return;
   }
 
   if (key === '.') {
-    result.innerHTML = 'dot';
+    if (!currentOperator) {
+      if (!number1.includes(".")) number1 += '.'
+    } else {
+      if (!number2.includes(".")) number2 += '.'
+    }
     return;
   }
 
@@ -42,28 +43,39 @@ function handleClick(btn) {
   updateResult();
 }
 
+function clear() {
+  currentOperator = '';
+  number1 = '';
+  number2 = '';
+
+  result.innerText = '0';
+  history.innerText = '';
+}
+
 function handleResult() {
-  let result = ''
+  let result = '';
 
   switch (currentOperator) {
     case '/':
-      result = Number(number1) / Number(number2)
+      result = Number(number1) / Number(number2);
       break;
     case '*':
-      result = Number(number1) * Number(number2)
+      result = Number(number1) * Number(number2);
       break;
     case '-':
-      result = Number(number1) - Number(number2)
+      result = Number(number1) - Number(number2);
       break;
     case '+':
-      result = Number(number1) + Number(number2)
+      result = Number(number1) + Number(number2);
       break;
   }
+
+  history.innerText = `${number1} ${currentOperator} ${number2}`;
 
   currentOperator = '';
   number1 = result;
   number2 = '';
-  updateResult()
+  updateResult();
 }
 
 function updateResult() {
