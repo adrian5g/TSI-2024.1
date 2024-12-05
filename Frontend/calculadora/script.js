@@ -2,55 +2,78 @@ const buttons = document.querySelectorAll('.btn');
 const resultDisplay = document.querySelector('.result');
 const historyDisplay = document.querySelector('.history');
 
-const operators = ['/', '*', '-', '+'];
-
 let currentOperator = '';
 let firstNumber = '';
 let secondNumber = '';
 
-function handleButtonClick(button) {
-  const key = button.innerText;
+const df = new Intl.NumberFormat('pt-BR');
 
-  if (operators.includes(key)) {
-    if (!firstNumber || firstNumber === "Erro") return;
+buttons.forEach((button) => {
+  button.addEventListener('click', () => handleButtonClick(button.innerText));
+});
 
-    currentOperator = key;
-    updateDisplay();
-    return;
+window.addEventListener('keydown', (event) => handleButtonClick(event.key));
+
+function handleButtonClick(key) {
+  switch (key) {
+    case '/':
+    case '*':
+    case '-':
+    case '+':
+      if (!firstNumber || firstNumber === 'Erro') return;
+
+      currentOperator = key;
+      updateDisplay();
+      break;
+    case 'AC':
+    case 'c':
+    case 'C':
+    case 'Backspace':
+      resetCalculator();
+      break;
+    case ',':
+    case '.':
+      if (firstNumber === 'Erro') return;
+
+      if (currentOperator) {
+        if (!secondNumber.includes('.')) secondNumber += '.';
+      } else {
+        if (!firstNumber.includes('.')) firstNumber += '.';
+      }
+
+      updateDisplay();
+      break;
+    case '=':
+    case 'Enter':
+      if (firstNumber && secondNumber && currentOperator) computeResult();
+      break;
+    case '0':
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+    case '5':
+    case '6':
+    case '7':
+    case '8':
+    case '9':
+      if (firstNumber === 'Erro') return;
+
+      if (currentOperator) {
+        secondNumber += key;
+      } else {
+        firstNumber += key;
+      }
+
+      updateDisplay();
   }
+}
 
-  if (key === 'AC') {
-    resetCalculator();
-    return;
-  }
+function formatDisplay() {
+  const num1 = parseFloat(firstNumber)
+  const num2 = parseFloat(secondNumber)
 
-  if (key === '.') {
-    if (firstNumber === "Erro") return
-
-    if (currentOperator) {
-      if (!secondNumber.includes('.')) secondNumber += '.';
-    } else {
-      if (!firstNumber.includes('.')) firstNumber += '.';
-    }
-
-    updateDisplay();
-    return;
-  }
-
-  if (key === '=') {
-    if (firstNumber && secondNumber && currentOperator) computeResult();
-    return;
-  }
-
-  if (firstNumber === "Erro") return
-
-  if (currentOperator) {
-    secondNumber += key;
-  } else {
-    firstNumber += key;
-  }
-
-  updateDisplay();
+  return `${num1 ? df.format(num1) : ""} ${currentOperator} ${num2 ? df.format(num2) : ""}`
 }
 
 function resetCalculator() {
@@ -81,7 +104,7 @@ function computeResult() {
       break;
   }
 
-  historyDisplay.innerText = `${firstNumber} ${currentOperator} ${secondNumber}`;
+  historyDisplay.innerText = formatDisplay();
   firstNumber = result.toString();
   secondNumber = '';
   currentOperator = '';
@@ -89,9 +112,5 @@ function computeResult() {
 }
 
 function updateDisplay() {
-  resultDisplay.innerText = `${firstNumber} ${currentOperator} ${secondNumber}`.trim();
+  resultDisplay.innerText = formatDisplay().trim();
 }
-
-buttons.forEach((button) => {
-  button.addEventListener('click', () => handleButtonClick(button));
-});

@@ -53,6 +53,7 @@ body {
   padding: 1rem;
   justify-content: space-between;
   min-height: 90dvh;
+  width: 20rem;
 }
 
 .display {
@@ -66,6 +67,8 @@ body {
   font-size: 64px;
   font-weight: 600;
   text-align: right;
+  text-wrap: wrap;
+  overflow: hidden;
 }
 
 .history {
