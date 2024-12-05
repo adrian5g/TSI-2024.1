@@ -2,6 +2,8 @@ const buttons = document.querySelectorAll('.btn');
 const resultDisplay = document.querySelector('.result');
 const historyDisplay = document.querySelector('.history');
 
+const defaultFrontSize = resultDisplay.style.fontSize;
+
 let currentOperator = '';
 let firstNumber = '';
 let secondNumber = '';
@@ -58,11 +60,10 @@ function handleButtonClick(key) {
     case '8':
     case '9':
       if (firstNumber === 'Erro') return;
-
       if (currentOperator) {
-        secondNumber += key;
+        if (secondNumber.length < 12) secondNumber += key;
       } else {
-        firstNumber += key;
+        if (firstNumber.length < 12) firstNumber += key;
       }
 
       updateDisplay();
@@ -70,10 +71,16 @@ function handleButtonClick(key) {
 }
 
 function formatDisplay() {
-  const num1 = parseFloat(firstNumber)
-  const num2 = parseFloat(secondNumber)
+  const num1 = parseFloat(firstNumber);
+  const num2 = parseFloat(secondNumber);
 
-  return `${num1 ? df.format(num1) : ""} ${currentOperator} ${num2 ? df.format(num2) : ""}`
+  if (firstNumber.length > 12 || secondNumber.length > 12) {
+    resultDisplay.style.fontSize = '32px';
+  } else if (firstNumber.length > 6 || secondNumber.length > 6) {
+    resultDisplay.style.fontSize = '40px';
+  }
+
+  return `${num1 ? df.format(num1) : ''} ${currentOperator} ${num2 ? df.format(num2) : ''}`;
 }
 
 function resetCalculator() {
@@ -81,6 +88,7 @@ function resetCalculator() {
   secondNumber = '';
   currentOperator = '';
   resultDisplay.innerText = '0';
+  resultDisplay.style.fontSize = defaultFrontSize;
   historyDisplay.innerText = '';
 }
 
