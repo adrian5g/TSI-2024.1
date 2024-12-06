@@ -60,6 +60,7 @@ function handleButtonClick(key) {
     case '8':
     case '9':
       if (firstNumber === 'Erro') return;
+
       if (currentOperator) {
         if (secondNumber.length < 12) secondNumber += key;
       } else {
@@ -67,6 +68,7 @@ function handleButtonClick(key) {
       }
 
       updateDisplay();
+      break;
   }
 }
 
@@ -80,7 +82,7 @@ function formatDisplay() {
     resultDisplay.style.fontSize = '40px';
   }
 
-  return `${num1 ? df.format(num1) : ''} ${currentOperator} ${num2 ? df.format(num2) : ''}`;
+  return `${firstNumber ? df.format(num1) : ''} ${currentOperator} ${secondNumber ? df.format(num2) : ''}`;
 }
 
 function resetCalculator() {
@@ -113,7 +115,7 @@ function computeResult() {
   }
 
   historyDisplay.innerText = formatDisplay();
-  firstNumber = result.toString();
+  firstNumber = `${result}`;
   secondNumber = '';
   currentOperator = '';
   updateDisplay();
