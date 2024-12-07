@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+  <form action="{% url 'login_resultado' %}" method="post" class="container">
+    {% csrf_token %}
+    
+    <h1>Login</h1>
+
+    <div class="input-wrapper">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" >
+    </div>
+
+    <div class="input-wrapper">
+      <label for="senha">Senha:</label>
+      <input type="password" name="senha" id="senha" >
+    </div>
+
+    <input type="submit" value="Entrar" class="btn-full">
+  </form>
+</body>
+</html>
