@@ -149,9 +149,12 @@ main {
 }
 
 .menu-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr; */
   gap: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .menu-card {
@@ -166,6 +169,22 @@ main {
 
 .menu-card-grow:hover {
   scale: 1.02;
+}
+
+.menu-card-grow {
+  width: 22rem;
+  height: 30rem;
+}
+
+.menu-card-grow .menu-card-image {
+  width: 100%;
+  height: 18rem;
+  flex: none;
+}
+
+.menu-card-grow .menu-card-image img {
+  width: 10rem;
+  height: 10rem;
 }
 
 .menu-card-image {
@@ -302,7 +321,7 @@ main {
 }
 
 ::-webkit-scrollbar {
-  width: 1.5rem;
+  width: .5rem;
 }
 
 ::-webkit-scrollbar-thumb {
