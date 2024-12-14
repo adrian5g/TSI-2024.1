@@ -1,8 +1,8 @@
 .container {
   position: absolute;
-  top: 50%;
+  top: 8rem;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   background-color: #d4d4d4;
   padding: 1rem;
   width: 50%;
