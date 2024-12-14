@@ -12,15 +12,21 @@ from django.db import models
 
 class Area(models.Model):
     nome = models.CharField('Nome', max_length=100)
+    
+    def __str__(self):
+        return self.nome
 
 
 class Publico(models.Model):
     nome = models.CharField('Nome', max_length=100)
 
+    def __str__(self):
+        return self.nome
+
 
 class Curso(models.Model):
     titulo = models.CharField('Título', max_length=200)
-    descricao = models.TextField('Descrição')
+    descricao = models.TextField('Descrição', null=True)  # pode ser null
     autor = models.CharField('Autor', max_length=100)
     vagas = models.IntegerField('Vagas')
     # PROTECT -> Protege | CASCADE -> Apaga as dependências

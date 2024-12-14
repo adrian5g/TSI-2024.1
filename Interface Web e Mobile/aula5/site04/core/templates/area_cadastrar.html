@@ -1,16 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Cadastrar Curso</h1>
-  <form action="" method="post">
-    {% csrf_token %}
-    {{ form_area }}
-    <p><input type="submit" value="Cadastrar"></p>
-  </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'cadastro.css' %}" />
+    <link rel="stylesheet" href="{% static 'reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
+    <link rel="stylesheet" href="{% static 'header.css' %}" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a href="{% url 'cursos' %}"><p class="btn">Voltar</p></a>
+    </header>
+
+    <main>
+      <div class="container">
+        <h1>Cadastrar Curso</h1>
+        <form action="" method="post">
+          {% csrf_token %} {{ form_area }}
+          <input class="btn" type="submit" value="Salvar" />
+        </form>
+      </div>
+    </main>
+  </body>
 </html>

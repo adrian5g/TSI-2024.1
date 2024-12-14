@@ -1,38 +1,53 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cursos</title>
+
+    <link rel="stylesheet" href="{% static 'reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
+    <link rel="stylesheet" href="{% static 'header.css' %}" />
+    <link rel="stylesheet" href="{% static 'cursos.css' %}" />
   </head>
   <body>
-    <h1>Cursos</h1>
+    <header class="topbar">
+      <div class="buttons">
+        <a href="{% url 'cadastrar_curso' %}">
+          <p class="btn">Cadastar Curso</p>
+        </a>
 
-    <p>Listagem de Cursos:</p>
-    <ul>
-      {% for curso in cursos %}
-      <li>
-        <p>
-          {{curso.titulo}} 
-          <a href="{% url 'editar_curso' curso.id %}">EDITAR</a>
-          <a href="{% url 'remover_curso' curso.id %}">REMOVER</a>
-        </p>
-      </li>
-      {% empty %}
-      <p>Não existem cursos disponíveis</p>
-      {% endfor %}
-    </ul>
+        <a href="{% url 'cadastrar_publico' %}">
+          <p class="btn">Cadastar Publico</p>
+        </a>
 
-    <a href="{% url 'cadastrar_curso' %}">
-      <button>Cadastar Curso</button>
-    </a>
+        <a href="{% url 'cadastrar_area' %}">
+          <p class="btn">Cadastar Area</p>
+        </a>
+      </div>
+    </header>
 
-    <a href="{% url 'cadastrar_publico' %}">
-      <button>Cadastar Publico</button>
-    </a>
-
-    <a href="{% url 'cadastrar_area' %}">
-      <button>Cadastar Area</button>
-    </a>
+    <main>
+      <div class="container">
+        <h1>Cursos</h1>
+  
+        <ul class="lista">
+          {% for curso in cursos %}
+          <li>
+            <div class="lista-item">
+              <p>{{curso.titulo}}</p>
+              <div class="buttons">
+                <a href="{% url 'editar_curso' curso.id %}"><p class="btn green">Editar</p></a>
+                <a href="{% url 'remover_curso' curso.id %}"><p class="btn red">Remover</p></a>
+              </div>
+            </div>
+          </li>
+          {% empty %}
+          <p class="lista-item">Não existem cursos disponíveis</p>
+          {% endfor %}
+        </ul>
+      </div>
+    </main>
   </body>
 </html>

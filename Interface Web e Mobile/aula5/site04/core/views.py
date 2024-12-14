@@ -52,7 +52,7 @@ def cadastrar_area(request):
 
 def editar_curso(request, id):
     # pegar um curso pelo id
-    curso = Curso.objects.get(pk=id)
+    curso = Curso.objects.get(pk=id) # atenção para find() functions
 
     form = CursoForm(request.POST or None, instance=curso)
 
@@ -67,7 +67,7 @@ def editar_curso(request, id):
     return render(request, 'curso_cadastrar.html', context)
 
 def remover_curso(request, id):
-    curso = Curso.objects.get(pk=id)
+    curso = Curso.objects.get(pk=id) # pk = primary key | chave primária
     curso.delete()
 
     return redirect('cursos')

@@ -1,0 +1,21 @@
+.btn {
+  --bg: #0095ff;
+  padding: 0.5rem 1rem;
+  background-color: var(--bg);
+  color: #ffffff;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.red {
+  --bg: #f54c4c;
+}
+
+.green {
+  --bg: #4cf598;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}

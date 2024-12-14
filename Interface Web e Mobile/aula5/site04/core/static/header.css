@@ -1,0 +1,12 @@
+.topbar {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-color: #d4d4d4;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
