@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="formulario.css" />
+    <script>
+      function verificar() {
+        let palavra = document.getElementById('palavra').value;
+        palavra = palavra.replaceAll(' ', '');
+        //window.alert(palavra);
+        let str = '';
+        let ehPalindromo = true;
+
+        for (let i = 0; i < palavra.length / 2; i++) {
+          let le = palavra.charAt(i);
+          let ld = palavra.charAt(palavra.length - 1 - i);
+
+          if (le != ld) {
+            ehPalindromo = false;
+          }
+        }
+
+        if (ehPalindromo) {
+          document.getElementById('resultado').innerHTML = 'É Palíndromo';
+        } else {
+          document.getElementById('resultado').innerHTML = 'NÃO É Palíndromo';
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <label>Digite uma palavra: </label>
+      <input type="text" name="palavra" id="palavra" />
+      <div class="botao" onclick="verificar()">Verificar</div>
+      <div class="resultado" id="resultado"></div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+input[type=text]{
+  font-size: 12px;
+  width: 200px;
+  border: 1px solid #555;
+  background-color: #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+label{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.botao{
+  border: 2px solid #105e17;
+  background-color: #a0d7a4;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  box-shadow: 0 0 10px #aaa;
+  cursor: pointer;
+}
+
+.botao:hover {
+  opacity: .7;
+}
