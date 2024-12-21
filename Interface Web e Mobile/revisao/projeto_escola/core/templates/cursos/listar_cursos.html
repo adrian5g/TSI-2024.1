@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+
+    <!-- ICONS -->
+    <script defer src="https://unpkg.com/lucide@latest"></script>
+    <script defer>
+      document.addEventListener('DOMContentLoaded', () => {
+        lucide.createIcons();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <a class="btn" href="{% url 'cadastrar_curso' %}">
+        <i data-lucide="square-plus"></i>
+        <p>Novo curso</p>
+      </a>
+
+      <div class="quadro">
+        <h1>Cursos</h1>
+
+        <!-- {% for curso in cursos %}
+          {% endfor %} 
+        -->
+
+        <table>
+          <tr>
+            <th>Nome</th>
+            <th>Vagas</th>
+            <th>Perídos</th>
+            <th>Ações</th>
+          </tr>
+
+          {% for curso in cursos %}
+          <tr>
+            <td>{{curso.nome}}</td>
+            <td>{{curso.vagas}}</td>
+            <td>{{curso.periodos}}</td>
+            <td>
+              <div>
+                <a class="btn btn--yellow" href="{% url 'listar_disciplinas' curso.id %}">
+                  <i data-lucide="library-big"></i>
+                </a>
+
+                <a class="btn btn--blue" href="{% url 'editar_curso' curso.id %}">
+                  <i data-lucide="square-pen"></i>
+                </a>
+
+                <a class="btn btn--red" href="{% url 'remover_curso' curso.id %}">
+                  <i data-lucide="trash-2"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
