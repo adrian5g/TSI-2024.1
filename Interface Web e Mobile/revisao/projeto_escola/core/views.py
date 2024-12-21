@@ -1,10 +1,20 @@
 from django.shortcuts import render, redirect
-from core.models import Curso, Disciplina
+from core.models import Curso, Disciplina, Aluno
 from .forms import CursoForm, DisciplinaForm
 
 
 def home(request):
-    return render(request, 'index.html')
+    cursos = Curso.objects.count()
+    disciplinas = Disciplina.objects.count()
+    alunos = Aluno.objects.count()
+
+    context = {
+        'quantidade_cursos': cursos,
+        'quantidade_disciplinas': disciplinas,
+        'quantidade_alunos': alunos
+    }
+
+    return render(request, 'index.html', context)
 
 
 def listar_cursos(request):
