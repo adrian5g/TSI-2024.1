@@ -24,16 +24,15 @@
       <nav class="links">
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'listar_cursos' %}">Cursos</a>
-        <a href="{% url 'listar_cursos' %}">Alunos</a>
+        <a href="{% url 'listar_alunos' %}">Alunos</a>
       </nav>
     </header>
 
-    {% block conteudo %}
-    {% endblock %}
+    {% block conteudo %} {% endblock %}
 
     <!-- RODAPÉ -->
     <footer class="bottombar">
-     <p> Feito com &hearts; por <a href="https://github.com/adrian5g">adrian5g</a></p>  
+      <p>Feito com &hearts; por <a href="https://github.com/adrian5g">adrian5g</a></p>
     </footer>
   </body>
 </html>

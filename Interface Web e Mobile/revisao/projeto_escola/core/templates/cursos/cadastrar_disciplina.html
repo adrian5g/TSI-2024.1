@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Disciplina</h1>
-
-    <form method="post">
-      {% csrf_token %} {{ form_disciplina }}
-      <input type="submit" value="Salvar" />
-    </form>
-  </body>
-</html>
+{% extends 'baseForm.html' %} {% block options %}
+<a href="{% url 'listar_disciplinas' id %}" class="btn">
+  <i data-lucide="arrow-left"></i>
+  <p>Voltar</p>
+</a>
+{% endblock %} {% block titulo %}
+<h1>Disciplina</h1>
+{% endblock %}

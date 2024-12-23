@@ -33,7 +33,7 @@
         <td>{{disciplina.periodo_requerido}}</td>
         <td>
           <div>
-            <a class="btn btn--red" href="{% url 'remover_curso' disciplina.id %}">
+            <a class="btn btn--red" href="{% url 'remover_disciplina' disciplina.curso.id disciplina.id %}">
               <i data-lucide="trash-2"></i>
             </a>
           </div>

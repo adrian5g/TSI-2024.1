@@ -1,0 +1,3 @@
+- 100% Responsivo [x]
+- CRUD [x]
+- CSS Puro

@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block conteudo %}
+<div class="container">
+  <a class="btn" href="{% url 'cadastrar_nota' aluno.id %}">
+    <i data-lucide="square-plus"></i>
+    <p>Nova nota</p>
+  </a>
+
+  <div class="quadro">
+    <h1>Notas</h1>
+
+    <table>
+      <tr>
+        {% for disciplina in disciplinas %}
+        <th>{{ disciplina.nome }}</th>
+        {% endfor %}
+      </tr>
+
+      
+      <tr>
+        {% for nota in notas %}
+        <td><p>{{nota.valor}}</p></td> <!-- adicionar um 'a' para poder editar -->
+        {% endfor %}
+      </tr>
+      
+    </table>
+  </div>
+</div>
+{% endblock %}

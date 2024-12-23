@@ -1,5 +1,4 @@
-{% extends 'base.html' %} 
-{% block conteudo %}
+{% extends 'base.html' %} {% block conteudo %}
 <div class="container">
   <a class="btn" href="{% url 'cadastrar_curso' %}">
     <i data-lucide="square-plus"></i>
@@ -8,10 +7,6 @@
 
   <div class="quadro">
     <h1>Cursos</h1>
-
-    <!-- {% for curso in cursos %}
-          {% endfor %} 
-        -->
 
     <table>
       <tr>
@@ -23,12 +18,12 @@
 
       {% for curso in cursos %}
       <tr>
-        <td>{{curso.nome}}</td>
-        <td>{{curso.vagas}}</td>
-        <td>{{curso.periodos}}</td>
+        <td><p>{{curso.nome}}</p></td>
+        <td><p>{{curso.vagas}}</p></td>
+        <td><p>{{curso.periodos}}</p></td>
         <td>
           <div>
-            <a class="btn btn--yellow" href="{% url 'listar_disciplinas' curso.id %}">
+            <a class="btn btn--purple" href="{% url 'listar_disciplinas' curso.id %}">
               <i data-lucide="library-big"></i>
             </a>
 

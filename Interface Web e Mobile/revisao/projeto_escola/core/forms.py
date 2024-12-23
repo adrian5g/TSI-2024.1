@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Curso, Disciplina
+from .models import Curso, Disciplina, Aluno, Nota
 
 
 class CursoForm(ModelForm):
@@ -17,3 +17,20 @@ class DisciplinaForm(ModelForm):
         curso_default = kwargs.pop('curso_default', None)
         super().__init__(*args, **kwargs)
         self.fields['curso'].initial = curso_default
+
+
+class AlunoForm(ModelForm):
+    class Meta:
+        model = Aluno
+        fields = ['nome', 'periodo_atual', 'curso']
+
+
+class NotaForm(ModelForm):
+    class Meta:
+        model = Nota
+        fields = ['valor', 'aluno', 'disciplina']
+
+    def __init__(self, *args, **kwargs):
+        aluno_default = kwargs.pop('aluno_default', None)
+        super().__init__(*args, **kwargs)
+        self.fields['aluno'].initial = aluno_default

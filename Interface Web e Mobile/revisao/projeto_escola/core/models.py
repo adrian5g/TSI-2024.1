@@ -1,7 +1,7 @@
 from django.db import models
 
 """
-CURSO:
+CURSO
 nome: texto
 limite: inteiro
 quantidade_de_periodos: inteiro
@@ -11,7 +11,7 @@ nome: texto
 curso: id
 periodo_atual: inteiro
 
-DISCIPLINA:
+DISCIPLINA
 nome: texto
 curso: id
 periodo_requerido: inteiro
@@ -22,25 +22,43 @@ aluno: id
 disciplina: id
 """
 
-class Curso(models.Model):
-  nome = models.CharField('Nome', max_length=300)
-  vagas = models.IntegerField('Vagas')
-  periodos = models.IntegerField('Perídos')
+# Not Null nos parâmetros
+# Unique no nome do Aluno
+# Unique no nome do Curso
+# Colocar a logo numa pasta img
+# mudar o ondelete do curso no Model Disciplina para para cascade
+# em Nota, Disciplina e Aluno precisam ser únicos
+# mudar o max digits pra 5
 
-  def __str__(self):
-    return self.nome
+
+class Curso(models.Model):
+    nome = models.CharField('Nome', max_length=300)
+    vagas = models.IntegerField('Vagas')
+    periodos = models.IntegerField('Perídos')
+
+    def __str__(self):
+        return self.nome
+
 
 class Aluno(models.Model):
-  nome = models.CharField('Nome', max_length=300)
-  periodo_atual = models.IntegerField('Perído Atual')
-  curso = models.ForeignKey(Curso, on_delete=models.PROTECT)
+    nome = models.CharField('Nome', max_length=300)
+    periodo_atual = models.IntegerField('Perído Atual')
+    curso = models.ForeignKey(Curso, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.nome
+
 
 class Disciplina(models.Model):
-  nome = models.CharField('Nome', max_length=300)
-  periodo_requerido = models.IntegerField('Perído Requerido')
-  curso = models.ForeignKey(Curso, on_delete=models.PROTECT) # change to cascade
+    nome = models.CharField('Nome', max_length=300)
+    periodo_requerido = models.IntegerField('Perído Requerido')
+    curso = models.ForeignKey(Curso, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.nome
+
 
 class Nota(models.Model):
-  valor = models.DecimalField('Valor', decimal_places=2, max_digits=3)
-  aluno = models.ForeignKey(Aluno, on_delete=models.PROTECT)
-  disciplina = models.ForeignKey(Disciplina, on_delete=models.PROTECT)
+    valor = models.DecimalField('Valor', decimal_places=2, max_digits=3)
+    aluno = models.ForeignKey(Aluno, on_delete=models.PROTECT)
+    disciplina = models.ForeignKey(Disciplina, on_delete=models.PROTECT)

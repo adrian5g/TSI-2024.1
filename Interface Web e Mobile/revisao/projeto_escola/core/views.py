@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from core.models import Curso, Disciplina, Aluno
-from .forms import CursoForm, DisciplinaForm
+from core.models import Curso, Disciplina, Aluno, Nota
+from .forms import CursoForm, DisciplinaForm, AlunoForm, NotaForm
 
 
 def home(request):
@@ -35,7 +35,7 @@ def cadastrar_curso(request):
         return redirect('listar_cursos')
 
     context = {
-        'form_curso': form
+        'form': form
     }
 
     return render(request, 'cursos/cadastrar_curso.html', context)
@@ -50,7 +50,7 @@ def editar_curso(request, id):
         return redirect('listar_cursos')
 
     context = {
-        'form_curso': form
+        'form': form
     }
 
     return render(request, 'cursos/cadastrar_curso.html', context)
@@ -77,7 +77,7 @@ def listar_disciplinas(request, id):
 def cadastrar_disciplina(request, id):
     curso = Curso.objects.get(pk=id)
     form = DisciplinaForm(request.POST or None, curso_default=curso)
-    
+
     # periodo = form.fields['periodo_requerido'].initial
     # perido_invalido =  0 > periodo > curso.periodos
 
@@ -86,7 +86,100 @@ def cadastrar_disciplina(request, id):
         return redirect('listar_disciplinas', id)
 
     context = {
-        'form_disciplina': form
+        'id': id,
+        'form': form
     }
 
     return render(request, 'cursos/cadastrar_disciplina.html', context)
+
+
+def remover_disciplina(request, curso_id, id):
+    curso = Disciplina.objects.get(pk=id)
+    curso.delete()
+
+    return redirect('listar_disciplinas', curso_id)
+
+
+def listar_alunos(request):
+    alunos = Aluno.objects.all()
+
+    context = {
+        'alunos': alunos
+    }
+
+    return render(request, 'alunos/listar_alunos.html', context)
+
+
+def cadastrar_aluno(request):
+    form = AlunoForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_alunos')
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'alunos/cadastrar_aluno.html', context)
+
+
+def editar_aluno(request, id):
+    aluno = Aluno.objects.get(pk=id)
+    form = AlunoForm(request.POST or None, instance=aluno)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_alunos')
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'alunos/cadastrar_aluno.html', context)
+
+
+def remover_aluno(request, id):
+    aluno = Aluno.objects.get(pk=id)
+    aluno.delete()
+
+    return redirect('listar_alunos')
+
+
+def listar_notas(request, id, periodo):
+    aluno = Aluno.objects.get(pk=id)
+    notas = Nota.objects.filter(aluno=aluno)
+
+    periodos_ate_o_atual = [i for i in range(1, aluno.periodo_atual + 1)]
+    disciplinas_periodo_selecionado = Disciplina.objects.filter(
+        curso=aluno.curso, periodo_requerido=periodo)
+
+    notas_periodo_selecionado = []
+    for disciplina in disciplinas_periodo_selecionado:
+        for nota in notas:
+            if nota.disciplina.id == disciplina.id:
+                notas_periodo_selecionado.append(nota)
+
+    context = {
+        'aluno': aluno,
+        'disciplinas': disciplinas_periodo_selecionado,
+        'periodos': periodos_ate_o_atual,
+        'notas': notas_periodo_selecionado
+    }
+
+    return render(request, 'alunos/listar_notas.html', context)
+
+
+def cadastrar_nota(request, id):
+    aluno = Aluno.objects.get(pk=id)
+    form = NotaForm(request.POST or None, aluno_default=aluno)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_notas', id, aluno.periodo_atual)
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'alunos/cadastrar_aluno.html', context)

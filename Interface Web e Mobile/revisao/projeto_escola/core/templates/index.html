@@ -1,7 +1,33 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block conteudo %}
+<main class="container">
+  <div class="estatisticas">
+    <div class="estatistica">
+      <div class="estatistica-texto">
+        <h3>Contamos com</h3>
+        <span>{{quantidade_alunos}}</span>
+        <p>Alunos</p>
+      </div>
+      <i data-lucide="graduation-cap" class="estatistica-icon"></i>
+    </div>
 
-{% block conteudo %}
-<p>quantidade de cursos: {{quantidade_cursos}}</p>
-<p>quantidade de disciplinas: {{quantidade_disciplinas}}</p>
-<p>quantidade de alunos: {{quantidade_alunos}}</p>
+    <div class="estatistica">
+      <div class="estatistica-texto">
+        <h3>Possuimos</h3>
+        <span>{{quantidade_cursos}}</span>
+        <p>Cursos</p>
+      </div>
+      <i data-lucide="book-marked" class="estatistica-icon"></i>
+    </div>
+
+    <div class="estatistica">
+      <div class="estatistica-texto">
+        <h3>Temos um total de</h3>
+        <span>{{quantidade_disciplinas}}</span>
+        <p>Disciplinas</p>
+      </div>
+      <i data-lucide="notebook-pen" class="estatistica-icon"></i>
+    </div>
+  </div>
+</main>
+
 {% endblock %}

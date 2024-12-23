@@ -1,8 +1,8 @@
 {% extends 'baseForm.html' %} {% block options %}
-<a href="{% url 'listar_cursos' %}" class="btn">
+<a href="{% url 'listar_notas' id periodo %}" class="btn">
   <i data-lucide="arrow-left"></i>
   <p>Voltar</p>
 </a>
 {% endblock %} {% block titulo %}
-<h1>Curso</h1>
+<h1>Nota</h1>
 {% endblock %}
