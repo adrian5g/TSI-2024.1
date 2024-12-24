@@ -19,6 +19,7 @@ Ser um pequeno gerenciador de cursos onde você pode gerenciar os cursos, as dis
 - Fullstack
 - Layout responsivo
 - Django
+- Usa CDN para os Ícones
 
 ### Demonstrações:
 
