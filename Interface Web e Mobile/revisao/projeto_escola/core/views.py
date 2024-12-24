@@ -155,31 +155,65 @@ def listar_notas(request, id, periodo):
         curso=aluno.curso, periodo_requerido=periodo)
 
     notas_periodo_selecionado = []
-    for disciplina in disciplinas_periodo_selecionado:
+    for indice, disciplina in enumerate(disciplinas_periodo_selecionado):
+        notas_periodo_selecionado.append({ 'disciplina': disciplina })
+
         for nota in notas:
             if nota.disciplina.id == disciplina.id:
-                notas_periodo_selecionado.append(nota)
+                notas_periodo_selecionado[indice] = nota
 
     context = {
         'aluno': aluno,
         'disciplinas': disciplinas_periodo_selecionado,
         'periodos': periodos_ate_o_atual,
+        'periodo_selecionado': periodo,
         'notas': notas_periodo_selecionado
     }
 
     return render(request, 'alunos/listar_notas.html', context)
 
 
-def cadastrar_nota(request, id):
+def cadastrar_nota(request, id, disciplina_id):
     aluno = Aluno.objects.get(pk=id)
-    form = NotaForm(request.POST or None, aluno_default=aluno)
+    disciplina = Disciplina.objects.get(pk=disciplina_id)
+
+    form = NotaForm(request.POST or None, aluno_default=aluno, disciplina_default=disciplina)
 
     if form.is_valid():
         form.save()
-        return redirect('listar_notas', id, aluno.periodo_atual)
+        return redirect('listar_notas', id, disciplina.periodo_requerido)
 
     context = {
+        'aluno': aluno,
+        'disciplina': disciplina,
         'form': form
     }
 
-    return render(request, 'alunos/cadastrar_aluno.html', context)
+    return render(request, 'alunos/cadastrar_nota.html', context)
+
+
+def editar_nota(request, id):
+    nota = Nota.objects.get(pk=id)
+
+    form = NotaForm(request.POST or None, instance=nota)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_notas', nota.aluno.id, nota.disciplina.periodo_requerido)
+
+    context = {
+        'aluno': nota.aluno,
+        'disciplina': nota.disciplina,
+        'form': form
+    }
+
+    return render(request, 'alunos/cadastrar_nota.html', context)
+
+def remover_nota(request, id, disciplina_id):
+    aluno = Aluno.objects.get(pk=id)
+    disciplina = Disciplina.objects.get(pk=disciplina_id)
+
+    nota = Nota.objects.filter(aluno=aluno, disciplina=disciplina).first()
+    nota.delete()
+
+    return redirect('listar_notas', id, disciplina.periodo_requerido)

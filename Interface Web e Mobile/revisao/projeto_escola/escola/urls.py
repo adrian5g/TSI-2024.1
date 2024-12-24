@@ -1,10 +1,11 @@
-from django.contrib import admin
 from django.urls import path
 from core.views import *
 
 urlpatterns = [
     path('', home, name='home'),
-    path('cadastrar_nota/<int:id>/', cadastrar_nota, name='cadastrar_nota'),
+    path('editar_nota/<int:id>/', editar_nota, name='editar_nota'),
+    path('remover_nota/<int:id>/<int:disciplina_id>/', remover_nota, name='remover_nota'),
+    path('cadastrar_nota/<int:id>/<int:disciplina_id>/', cadastrar_nota, name='cadastrar_nota'),
     path('listar_notas/<int:id>/<int:periodo>/', listar_notas, name='listar_notas'),
     path('remover_aluno/<int:id>/', remover_aluno, name='remover_aluno'),
     path('editar_aluno/<int:id>/', editar_aluno, name='editar_aluno'),

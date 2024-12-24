@@ -32,5 +32,7 @@ class NotaForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         aluno_default = kwargs.pop('aluno_default', None)
+        disciplina_default = kwargs.pop('disciplina_default', None)
         super().__init__(*args, **kwargs)
         self.fields['aluno'].initial = aluno_default
+        self.fields['disciplina'].initial = disciplina_default
