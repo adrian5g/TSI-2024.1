@@ -1,43 +1,54 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
 export default function App() {
+  const nome = 'Luiz Felipe';
+  const idade = 69;
+
+  // alert('Olá mundo')
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Olá mundo</Text>
-      <View style={styles.boxContainer}>
-        <View style={styles.box}></View>
-        <View style={styles.box}></View>
-        <View style={styles.box}></View>
-        <View style={styles.box}></View>
+      <View style={styles.imageContainer}>
+        <Image style={styles.foto} source={require('./assets/foto.png')} />
       </View>
+      <Text style={styles.curso}>Sistemas para Internet</Text>
+      <Text style={styles.materia}>Interface Web e Mobile</Text>
 
-      
-      <StatusBar style='auto' />
+      <Text style={styles.textoGrande}>Seu nome: {nome}</Text>
+      <Text style={styles.textoGrande}>Sua idade: {idade} anos</Text>
+      <Text style={{ color: 'brown', ...styles.textoGrande }}>Instituto: IFRN</Text> 
+
+      <Button title='Cutucar' onPress={() => alert('Luiz diz: Uiuiui aiaiai')} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    height: '100%',
+    gap: 10,
+    padding: 10,
   },
-  title: {
-    color: '#1d633f',
-    fontWeight: 'bold',
-    fontSize: 32,
+  imageContainer: {
+    alignItems: 'center',
   },
-  boxContainer: {
-    flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'space-around'
+  curso: {
+    textAlign: 'center',
+    color: 'blue',
+    fontWeight: '800',
   },
-  box: {
-    height: 100,
-    width: 70,
-    backgroundColor: '#4372d8',
+  materia: {
+    letterSpacing: 4,
+    fontSize: 24,
+    textAlign: 'center',
   },
+  foto: {
+    height: 300,
+    width: 300,
+    borderRadius: 200,
+  },
+  textoGrande: {
+    fontSize: 24
+  }
 });
