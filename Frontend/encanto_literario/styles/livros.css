@@ -1,0 +1,73 @@
+.livros {
+  max-width: calc(var(--tamanho-tela) + 300px);
+  margin-inline: auto;
+}
+
+.livros-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.livro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--gray-4);
+  border-radius: 1rem;
+  width: 285px;
+  cursor: pointer;
+  transition: 500ms;
+}
+
+.livro:hover {
+  scale: 1.1;
+}
+
+.livro-capa {
+  width: 126px;
+  height: 189px;
+}
+
+.livro-titulo {
+  max-width: 200px;
+  text-align: center;
+}
+
+.livro-avaliacao {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avaliacao-estrelas {
+  display: flex;
+}
+
+.avaliacao-quantidade {
+  color: var(--gray-1);
+}
+
+.livro-preco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.livro-preco-pix {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.livro-preco-pix span {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* @media screen and (max-width: 600px) {
+  
+} */

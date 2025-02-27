@@ -1,0 +1,81 @@
+/* .usuario {
+} */
+
+.user-container {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: var(--tamanho-tela);
+  margin-inline: auto;
+  margin-top: 2rem;
+}
+
+.user-options {
+  font-size: 18px;
+  text-align: start;
+}
+
+.user-options a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.user-options a:hover {
+  background-color: #4d4d4d;
+  color: #535353;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.user-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-informations {
+  width: 700px;
+  height: 400px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 1rem 2rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-informations p {
+  font-weight: bold;
+}
+
+.user-informations-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btn {
+  background-color: var(--purple-5);
+  color: var(--purple-1);
+  height: 60px;
+  padding: 1rem 0.5rem;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 700px) {
+  .user-container {
+    flex-direction: column;
+  }
+}

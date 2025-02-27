@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Rosario:ital,wght@0,300..700;1,300..700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+:root {
+  /* Cores */
+  --purple-1: #180047;
+  --purple-2: #5d17eb;
+  --purple-3: #a782f1;
+  --purple-4: #a094ba;
+  --purple-5: #ceb9f9;
+
+  --gray-1: #313131;
+  --gray-2: #929292;
+  --gray-3: #d4d4d4;
+  --gray-4: #e2e2e2;
+  --gray-translucent: #96969651;
+
+  --yellow-1: #848b00;
+  --yellow-2: #fffab3;
+
+  --green-1: #00501d;
+  --green-2: #00953775;
+
+  --red-1: #6b0707;
+  --red-2: #ec6d6d;
+
+  /* Configurações */
+  --tamanho-tela: 1080px;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Desabilita a opção padrão de ver senha do browser */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-show-password-button {
+  display: none;
+}
+
+/* Estilização para o modal */
+.modal {
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+
+  width: 100%;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: 500ms;
+}
+
+.modal-active {
+  opacity: 1;
+  visibility: visible !important;
+}
+
+.modal-close {
+  align-self: flex-end;
+  color: var(--purple-1);
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  opacity: 0.8;
+}
+
+/* Botão genérico */
+.button {
+  border-radius: 10px;
+  background-color: var(--purple-2);
+  padding: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  color: white;
+
+  cursor: pointer;
+  transition: 500ms;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+/* Estilização da scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 9999px;
+}
