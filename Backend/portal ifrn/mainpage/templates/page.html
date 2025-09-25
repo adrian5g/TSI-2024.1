@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Main</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-wrapper">
+        <div class="topbar-content">
+          <div class="logo">
+            <a class="logo-image" href="{% url 'main' %}">
+              <img src="{% static 'logo.svg' %}" alt="" />
+            </a>
+
+            <p class="logo-text">
+              Educação, Ciência, Cultura e Tecnologia em todo o Rio Grande do Norte
+            </p>
+          </div>
+        </div>
+
+        <div class="menu">
+          <div class="menu-option">
+            <a href="">Processos Seletivos</a>
+          </div>
+          <div class="menu-option">
+            <a href="">Cursos</a>
+          </div>
+          <div class="menu-option">
+            <a href="">Campi</a>
+          </div>
+          <div class="menu-option">
+            <a href="">Institucional</a>
+          </div>
+          <div class="menu-option">
+            <a href="">Acesso à Informação</a>
+          </div>
+          <div class="menu-option">
+            <a href="">Eventos</a>
+          </div>
+          <div class="menu-option">
+            <a href="">Serviços</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="maincontent">
+      <div class="maincontent-wrapper">
+        <div class="cards">
+          <a href="{% url 'noticia1' %}" class="card">
+            <img src="{% static 'ProITEC_2025.png' %}" alt="" />
+
+            <div class="card-hover-text">
+              <p>Acesse</p>
+            </div>
+          </a>
+
+          <a href="{% url 'noticia1' %}" class="card">
+            <img src="{% static 'ProITEC_2025.png' %}" alt="" />
+
+            <div class="card-hover-text">
+              <p>Acesse</p>
+            </div>
+          </a>
+
+          <a href="{% url 'noticia1' %}" class="card">
+            <img src="{% static 'ProITEC_2025.png' %}" alt="" />
+
+            <div class="card-hover-text">
+              <p>Acesse</p>
+            </div>
+          </a>
+
+          <a href="{% url 'noticia1' %}" class="card">
+            <img src="{% static 'ProITEC_2025.png' %}" alt="" />
+
+            <div class="card-hover-text">
+              <p>Acesse</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="news">
+          <h2 class="title">Notícias</h2>
+
+          <div class="news-cards">
+            <a href="{% url 'noticia2' %}" class="news-card">
+              <img src="{% static 'Propriedade_Intelectual_Capa_Mater.png' %}" alt="">
+
+              <p class="news-card-hat">
+                Inovação
+              </p>
+
+              <h3 class="news-card-title">
+                Série especial destaca inovações do IFRN em propriedade intelectual e tecnologias patenteadas
+              </h3>
+
+              <h4 class="news-card-subtitle">
+                Primeira matéria traz o Regulador Eletromagnético de Frequência
+              </h4>
+
+              <p class="news-card-posted">
+                Há 10 horas, 54 minutos
+              </p>
+            </a>
+            <a href="{% url 'noticia2' %}" class="news-card">
+              <img src="{% static 'Propriedade_Intelectual_Capa_Mater.png' %}" alt="">
+
+              <p class="news-card-hat">
+                Inovação
+              </p>
+
+              <h3 class="news-card-title">
+                Série especial destaca inovações do IFRN em propriedade intelectual e tecnologias patenteadas
+              </h3>
+
+              <h4 class="news-card-subtitle">
+                Primeira matéria traz o Regulador Eletromagnético de Frequência
+              </h4>
+
+              <p class="news-card-posted">
+                Há 10 horas, 54 minutos
+              </p>
+            </a>
+            <a href="{% url 'noticia2' %}" class="news-card">
+              <img src="{% static 'Propriedade_Intelectual_Capa_Mater.png' %}" alt="">
+
+              <p class="news-card-hat">
+                Inovação
+              </p>
+
+              <h3 class="news-card-title">
+                Série especial destaca inovações do IFRN em propriedade intelectual e tecnologias patenteadas
+              </h3>
+
+              <h4 class="news-card-subtitle">
+                Primeira matéria traz o Regulador Eletromagnético de Frequência
+              </h4>
+
+              <p class="news-card-posted">
+                Há 10 horas, 54 minutos
+              </p>
+            </a>
+            <a href="{% url 'noticia2' %}" class="news-card">
+              <img src="{% static 'Propriedade_Intelectual_Capa_Mater.png' %}" alt="">
+
+              <p class="news-card-hat">
+                Inovação
+              </p>
+
+              <h3 class="news-card-title">
+                Série especial destaca inovações do IFRN em propriedade intelectual e tecnologias patenteadas
+              </h3>
+
+              <h4 class="news-card-subtitle">
+                Primeira matéria traz o Regulador Eletromagnético de Frequência
+              </h4>
+
+              <p class="news-card-posted">
+                Há 10 horas, 54 minutos
+              </p>
+            </a>
+            <!-- <a href="{% url 'noticia2' %}" class="news-card">
+              <img src="{% static 'PartiuIF.png' %}" alt="">
+
+              <p class="news-card-hat">
+                PartiuIF
+              </p>
+
+              <h3 class="news-card-title">
+                PartiuIF: divulgada a terceira chamada de estudantes para pré-matrícula
+              </h3>
+
+              <h4 class="news-card-subtitle">
+                Além da convocação, foram enviados os resultados dos recursos da segunda chamada
+              </h4>
+
+              <p class="news-card-posted">
+                Há 5 horas, 48 minutos
+              </p>
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
